@@ -31,6 +31,16 @@ public class LoginTest
         Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
     }
 
+    @Test
+    public void unsuccessfulLogin()
+    {
+        loginPage.enterEmail("user");
+        loginPage.enterPassword("password");
+        loginPage.clickLoginButton();
+        // Assert para verificar que el login fallo y sigue en la misma url
+        Assert.assertEquals(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    }
+
     @AfterMethod
     public void tearDown()
     {
