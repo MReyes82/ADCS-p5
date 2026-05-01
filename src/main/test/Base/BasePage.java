@@ -13,10 +13,10 @@ public class BasePage
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public BasePage(WebDriver driver)
+    public BasePage(WebDriver driver, int seconds)
     {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
     }
 
     // Encontrar element con wait explicito (ToBeClickable))
