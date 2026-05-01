@@ -18,7 +18,7 @@ public class LoginTest
     {
         driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        loginPage = new LoginPage(driver, 10);
+        loginPage = new LoginPage(driver, 5);
     }
 
     @Test

@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage
 {
     // Definir los locators de los elementos de la página de login
-    private final By emailField = By.name("username");;
+    private final By emailField = By.name("username");
     private final By passwordField = By.name("password");
-    private final By loginButton = By.className("oxd-button oxd-button--medium oxd-button--main orangehrm-login-button");;
+    private final By loginButton = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button");;
 
     public LoginPage(WebDriver driver, int seconds)
     {
