@@ -24,6 +24,71 @@ public class PIMTest
         pimPage.accessToPIM();
     }
 
+    // TC: P-PIM-01P
+    @Test
+    public void employeeListTest_P_PIM_01P()
+    {
+        // Datos de prueba
+        String employeeName = "Arun K";
+
+        pimPage.setEmployeeNameValue(employeeName);
+        pimPage.selectFirstEmployeeNameOption();
+        pimPage.clickSearchButton();
+        pimPage.waitForEmployeeListContainer();
+        // El resultado esperado (segun tu caso de prueba manual) indica que si el usuario buscó por empleado, le deberían salir todos los registros con su nombre.
+        // El resultado obtenido fue que SOLO devolvió 1, por lo  que el estado de la prueba será FAIL.
+        int results = pimPage.getResultTableRowsCount();
+
+        // Realizamos la aserción que provocará un Fail porque `results` será 1 a diferencia de lo esperado (>1)
+        Assert.assertTrue(results > 1, "Se esperaba que se mostrarán varios registros repetidos del empleado, pero solo se mostró: " + results);
+    }
+
+    // TC: P-PIM-02P
+    @Test
+    public void addEmployeeTest_P_PIM_02P()
+    {
+        // Datos de prueba
+        String firstName = "Peter";
+        String lastName = "Mc Donald";
+        String employeeId = "0669";
+        String fullName = firstName + " " + lastName;
+
+        // Paso 1: El usuario hace click en "Add Employee"
+        pimPage.clickAddEmployeeTab();
+
+        // Paso 2: El usuario ingresa nombre del empleado.
+        pimPage.setFirstNameValue(firstName);
+
+        // Paso 3: El usuario ingresa apellido del usuario.
+        pimPage.setLastNameValue(lastName);
+
+        // Paso 4: El usuario ingresa otro ID.
+        pimPage.setAddEmployeeIdValue(employeeId);
+
+        // Paso 5: El usuario hace click en "Save"
+        pimPage.clickSaveAddEmployeeButton();
+
+        // Esperamos a que se guarde la info y la vista se refresque hacia los detalles personales
+        pimPage.waitForPersonalDetailsRefresh();
+
+        // Paso 6: El usuario hace click en "Employee List"
+        pimPage.clickEmployeeListButton();
+
+        // Paso 7: El usuario ingresa el nombre completo en "Employee Name"
+        pimPage.setEmployeeNameValue(fullName);
+
+        // Paso 8: El usuario selecciona al empleado en el dropdown.
+        pimPage.selectFirstEmployeeNameOption();
+
+        // Finalmente, el usuario busca:
+        pimPage.clickSearchButton();
+        pimPage.waitForEmployeeListContainer();
+
+        // Validamos que el resultado esperado es encontrar al nuevo empleado
+        int results = pimPage.getResultTableRowsCount();
+        Assert.assertTrue(results >= 1, "Se esperaba que el empleado recién creado (" + fullName + ") apareciera en la lista, pero se encontraron " + results + " resultados.");
+    }
+
     // TC: P-PIM-02Y
     @Test
     public void removeEmployeeTest()
