@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class DashboardPage extends BasePage
 {
     private final By clockButton = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/button");
-    private final By datePicker = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/input");
-    private final By timePicker = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[1]/div/div[4]/div/div[2]/div/div/input");
     private final By noteTextField = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[2]/div/div/div/div[2]/textarea");
     private final By punchHeader = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/h6");
     private final By submitButton = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/form/div[3]/button");
