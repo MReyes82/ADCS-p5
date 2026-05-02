@@ -28,16 +28,6 @@ public class DashboardPage extends BasePage
         return getText(punchHeader);
     }
     // setters de los campos del formulario
-    public void setDatePickerValue(String value)
-    {
-        sendKeys(datePicker, value);
-    }
-
-    public void setTimePickerValue(String value)
-    {
-        sendKeys(timePicker, value);
-    }
-
     public void setNoteTextFieldValue(String value)
     {
         sendKeys(noteTextField, value);
